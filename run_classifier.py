@@ -83,7 +83,7 @@ flags.DEFINE_integer("predict_batch_size", 8, "Total batch size for predict.")
 
 flags.DEFINE_float("learning_rate", 5e-5, "The initial learning rate for Adam.")
 
-flags.DEFINE_float("num_train_epochs", 3.0,
+flags.DEFINE_float("num_train_epochs", 10.0,
                    "Total number of training epochs to perform.")
 
 flags.DEFINE_float(
@@ -320,7 +320,9 @@ class MrpcProcessor(DataProcessor):
   def _create_examples(self, lines, set_type):
     """Creates examples for the training and dev sets."""
     examples = []
+
     for (i, line) in enumerate(lines):
+
       if i == 0:
         continue
       guid = "%s-%s" % (set_type, i)
@@ -405,7 +407,7 @@ class SentiProcessor(DataProcessor):
             # print('type(line)',line)
 
 
-            line = line[0].strip().split()
+            # line = line[0].strip().split()
             # print('line0={},line1={}'.format(line[0],line[1]))
             guid = "%s-%s" % (set_type, i)
 
