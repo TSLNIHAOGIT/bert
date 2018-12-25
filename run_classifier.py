@@ -29,6 +29,8 @@ import tensorflow as tf
 flags = tf.flags
 
 FLAGS = flags.FLAGS
+import sys
+sys.path.append('bert')
 
 ## Required parameters
 flags.DEFINE_string(
